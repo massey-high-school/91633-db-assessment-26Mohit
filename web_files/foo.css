@@ -1,0 +1,154 @@
+body {
+	font-family: Tahoma;
+	color: #000000;
+	background-color: #9DB3C8; /*light blue */
+}
+
+span.error {
+	color: #ff0000;
+}
+
+div.content {
+	margin: auto;
+	width: 800px;
+	}
+
+div.heading{
+	color: #ffffff;
+	text-align: center;
+	background-color: #052544; /* dark blue */
+	padding: 10px;
+	}
+	
+div.photo{
+	padding-right: 10px;
+	float: left;
+}
+
+div.main{
+	/*prevent image from overflowing */
+	overflow:auto;
+	padding: 20px;
+	background-color: #ffffff;
+}
+
+div.warning{
+	background-color: #e5b7b7;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+img.header
+{
+	border: 0px;
+	margin: auto;
+	text-align: center;
+
+}
+
+div.navigation
+{
+	background-color: #000000;
+	color: #ffffff;
+	padding: 10px;
+	margin: auto;
+	text-align: center;
+}
+
+div.footer
+{
+background-color: #000000;
+color: #ffffff;
+text-align: right;
+padding: 10px;
+}
+
+h1 {
+	color: #052544;
+}
+
+h1.white
+{
+	color: #ffffff;
+}
+
+
+/* Normal Links */
+
+a {font-weight: bold;}
+  a:link {color: #0C3862;} /* dark blue */
+  a:visited {color: #545454;} /* grey */
+  a:hover  {color: #00472E;} /* teal */
+  a:active { color: #0C3862;} /* dark blue */
+	  
+/* Navigation Links */
+a.nav {font-weight: bold;}
+  a.nav:link {color: #ffffff;}
+  a.nav:visited {color: #ffffff;} /* white */
+  a.nav:hover  {color: #85ADD2;}	/* light blue */
+  a.nav:active { color: #85ADD2;}	/* light blue */
+  
+
+/* Formatting for 'Booking Form' */
+
+table.form
+{
+	border: none;
+}
+		
+td.form
+{
+	padding-right: 50px;
+	padding-top: 25px;
+	border: none;
+	}
+
+td.submit
+{
+	text-align: center;
+	padding: 10px;
+	border: none;
+}	
+
+/* Formatting for Results tables */
+
+table.results{
+	text-align: left;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+th.results {
+  
+    height: 36px;
+    vertical-align: middle;
+    padding: 10px;
+    border-bottom: 1px solid black;
+	border-right: 1px solid black;
+    background-color: #3d8183;
+	color: #ffffff;
+}
+
+tr.results {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    height: 24px;
+}
+
+tr.results:nth-child(even) { 
+    background-color: #eeeeee;
+}
+
+tr.results:nth-child(odd) { 
+    background-color: #ffffff;
+}
+
+td.results {
+   padding: 10px;
+   border-bottom: 1px solid black;
+   border-right: 1px solid black;
+}
+
