@@ -3,8 +3,6 @@
 <html>
 
 <head>
-	<meta name="description" content="edit me">
-	<meta name="keywords" content="edit me">
 	<meta name="author" content="you name">
 	<meta charset="UTF-8">
 	<title>Chic Clothing</title>
@@ -15,7 +13,7 @@
 <div class="content">
 
 	<div class="heading">
-		<h1 class="white">L3 DB Assessment (edit me)</h1>
+		<h1 class="white">Te Reo Dictionary</h1>
 	</div> <!-- end heading -->
 
 	<div class="navigation">
