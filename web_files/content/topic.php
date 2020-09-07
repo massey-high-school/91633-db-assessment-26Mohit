@@ -43,7 +43,7 @@ do{
     
     <tr class="results">
         <td class="results">
-            <a href="index.php?page=item&vocabID=<?php echo $vocab_rs
+            <a href="index.php?page=vocab&vocabID=<?php echo $vocab_rs
             ['vocabID'];?>">
                 <?php echo $vocab_rs['word'];?>
             </a>

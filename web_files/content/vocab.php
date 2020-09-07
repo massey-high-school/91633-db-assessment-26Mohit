@@ -12,7 +12,7 @@ $vocab_rs=mysqli_fetch_assoc($vocab_query);
 
 <h3>
    <?php echo $vocab_rs['word']; ?>
-    (<?php echo $vocab_rs['level'];?>)
+    (L<?php echo $vocab_rs['level'];?>)
 </h3>
 
 <div class="photo">
@@ -20,6 +20,6 @@ $vocab_rs=mysqli_fetch_assoc($vocab_query);
 
 </div>
 
-<p><?php echo $vocab_rs['maori']; ?></p>
+<p>Maori- <?php echo $vocab_rs[('maori')]; ?></p>
 
-<p><?php echo $vocab_rs['definition']; ?></p>
+<p>Definition- <?php echo $vocab_rs['definition']; ?></p>
