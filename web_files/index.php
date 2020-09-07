@@ -1,44 +1,48 @@
 <!DOCTYPE HTML>
 
+<?php
+
+session_start();
+include("config.php");
+include("functions.php");
+
+// Connect to database...
+$dbconnect=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+
+if(mysqli_connect_error()){
+    echo "Connection failed:".mysqli_connect_error();
+    exit;
+}
+
+?>
+
 <html>
 
-<head>
-	<meta name="author" content="you name">
-	<meta charset="UTF-8">
-	<title>Chic Clothing</title>
-	<link rel="stylesheet" href="theme/foo.css" title="style1" />
-</head>
-	
-	<body>
-<div class="content">
-
-	<div class="heading">
-		<h1 class="white">Te Reo Dictionary</h1>
-	</div> <!-- end heading -->
-
-	<div class="navigation">
-		
-		Category links go here | 
-					
-		<a class="nav" href="admin/admin.php">Admin</a>
-		
-	</div>	<!-- end navigation -->
+<?php
+    
+include ("content/headers.html");    
+include ("theme/heading.php");
+include ("content/navigation.php");
+    
+?>
 
 	<div class="main">
-
-		<h1>Welcome to ....</h1>
-
-		<p>Please do something or <a href="#">login</a> to access the admin panel.</p>	
+        
+    <?php
+    
+    if (!isset($_REQUEST['page'])) {
+        include("content/home.php");
+    }    
+    
+    else {
+        // prevents users from navigating through file system
+        $page=preg_replace('/[^0-9a-zA-Z]-/','',$_REQUEST['page']);
+        include("content/$page.php");
+    }
+    ?>    
 
 	</div> <!-- end main -->
-		
-	<div class="footer">
-		&copy; Your Name &copy; 20XX
-	</div> <!-- end footer -->
-
-</div> <!-- end content -->
-
-</body>
-
+<?php include ("theme/bottombit.php"); ?>		
+	
 
 </html>
