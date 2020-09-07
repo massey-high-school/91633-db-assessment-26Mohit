@@ -5,7 +5,7 @@
         $topic_query=mysqli_query($dbconnect,$topic_sql); // runs query
         $topic_rs=mysqli_fetch_assoc($topic_query); // organises results
 
-        // Loop to create dynamic topic links. Column heading from table is in square brackets (eg: 'name')
+        // Loop to create dynamic topic links. Column heading from table is in square brackets (eg: 'word')
 
         do{?>
         

@@ -5,7 +5,7 @@
         header('Location:index.php');
     }
 
-    $vocab_sql="SELECT * FROM `DB_vocab` JOIN DB_topic ON  (DB_vocab.topicID=DB_topic.topicID) WHERE DB_vocab.topicID=".$_REQUEST['topicID']." ORDER BY DB_vocab.name ASC";
+    $vocab_sql="SELECT * FROM `DB_vocab` JOIN DB_topic ON  (DB_vocab.topicID=DB_topic.topicID) WHERE DB_vocab.topicID=".$_REQUEST['topicID']." ORDER BY DB_vocab.word ASC";
     $vocab_query=mysqli_query($dbconnect, $vocab_sql);
     $vocab_rs=mysqli_fetch_assoc($vocab_query);
 	
@@ -16,7 +16,7 @@
 
 <h3>
     <?php
-        echo $stock_rs['topicName'];
+        echo $vocab_rs['topicName'];
     ?>
 </h3>
 
@@ -45,13 +45,13 @@ do{
         <td class="results">
             <a href="index.php?page=item&vocabID=<?php echo $vocab_rs
             ['vocabID'];?>">
-                <?php echo $vocab_rs['name'];?>
+                <?php echo $vocab_rs['word'];?>
             </a>
         
         </td>
         
         <td class="results">
-        <b>$<?php echo $vocab_rs['level'];?></b>
+        <b>L<?php echo $vocab_rs['level'];?></b>
         
         </td>
     
