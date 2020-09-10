@@ -9,6 +9,19 @@ $photo="noimage.png";
 $WordErr=$LevelErr=$PhotoErr=$MaoriErr=$DefErr="";
 
 
+// sql to populate our 'edit' form...
+$vocabID=preg_replace('/[^0-9.]/','',$_REQUEST['vocabID']);
+$editvocab_sql="SELECT * FROM `DB_vocab` WHERE vocabID=".$vocabID;
+$editvocab_query=mysqli_query($dbconnect, $editvocab_sql);
+$editvocab_rs=mysqli_fetch_assoc($editvocab_query);
+
+$word=$editvocab_rs['word'];
+$level=$editvocab_rs['level'];
+$topicID=$editvocab_rs['topicID'];
+$maori=$editvocab_rs['maori'];
+$definition=$editvocab_rs['definition'];
+$photo=$editvocab_rs['photo'];
+
 // define variables and set to empty values...
 $valid=true;
 $uploadOk = 1;
@@ -25,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     
     // Error checking...
     If (empty($word)) {
-    $WordErr = "a Word is required";
+    $WordErr = "New Word is required";
     $valid=false;    
     }
     
@@ -73,32 +86,46 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     
     // If everything is OK - show 'success message and update database
     if($valid){
-    header('Location: admin.php?page=addvocab_success');
-            
-    // put entry into database
-    if ($_FILES['fileToUpload']['word']!="")
-        
-        $addvocab_sql="INSERT INTO `DB_vocab` (word, topicID, level, photo, maori, definition) VALUES (
-        '$word',
-        '$topicID',
-        '$level',
-        '".$target_file."',
-        '$maori',
-        '$definition'
-        )";
+    header('Location: admin.php?page=editvocab_success');
+	
+	// Replace image and delete 'old' image if necessary
+	
+	if ($_FILES['fileToUpload']['word']!="")
+	{
+	$target_file = uniqid()."-". basename($_FILES["fileToUpload"]['word']);
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    $changephoto=",photo=\"$target_file\"";
     
-    else
-         $addvocab_sql="INSERT INTO `DB_vocab` (word, topicID, level, photo, maori, definition) VALUES (
-        '$word',
-        '$topicID',
-        '$level',
-        '$photo',
-        '$maori',
-        '$definition'
-        )";
+    // removes old photo file..
+    if ($editvocab_rs['photo']!='noimage.png' and $editvocab_rs['photo']!='')
+    {
+       unlink(IMAGE_DIRECTORY."/".$editvocab_rs['photo']);
+    }
+    
+    $fileuploaded=1;
+     
+    }
+	
+	else {
+		$fileuploaded=0;
+		$changephoto='';
+	}
+     
+    // Update the database Column_Name=New_Value, Column_Name=New_Value	
+	
+	$editvocab_sql="UPDATE `DB_vocab` SET
+	word='$word',
+	topicID='$topicID',
+	level='$level',
+	photo='$photo',
+	Maori='$description'
+	$changephoto
+	WHERE vocabID=$vocabID";
+	
+  
         
     // Code below runs query and inputs data into database 
-    $addvocab_query=mysqli_query($dbconnect,$addvocab_sql);    
+    $editvocab_query=mysqli_query($dbconnect,$editvocab_sql);    
     
     if ($uploadOk==1) {
         
@@ -110,9 +137,9 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=addvocab");?>" enctype="multipart/form-data">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=editvocab&vocabID=$vocabID");?>" enctype="multipart/form-data">
     
-    <h1>Add Vocab</h1>
+    <h1>Edit Word</h1>
     
     <p>
         <b>Word:</b>
@@ -136,34 +163,41 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         $topic_sql="SELECT * FROM `DB_topic`";
         $topic_query=mysqli_query($dbconnect, $topic_sql);
             
-         do {
+        do {
 			
 			if ($topic_rs['topicID']==$topicID) {
 				echo '<option value="'.$topic_rs['topicID'].'"
 				selected';
-				echo ">".$topic_rs['topicName']."</option>";
+				echo ">".$cat_rs['topicName']."</option>";
 			}
 			else {
             echo '<option value="'.$topic_rs['topicID'].'"';
-            echo ">".$topic_rs['topicName']."<?option>";
+            echo ">".$cat_rs['topicName']."<?option>";
             }
         }    
         
         while ($topic_rs=mysqli_fetch_assoc($topic_query)) 
-			
+            
         ?>    
         
         </select>    
     </p>
 
     <p>
-        <b>Photo</b>    
+        <b>Photo</b>
+        <p>
+            <?php
+        // shows image in database
+        echo "<img src=".IMAGE_DIRECTORY."/".$editvocab_rs['photo'].">";
+        ?>
+        </p>
+        Optionally Replace Photo Above:		
         <input type="file" name="fileToUpload" id="fileToUpload" value=""/>&nbsp;&nbsp; <span class="error"><?php echo $PhotoErr;?></span>    
     </p>
 
     <p>
         <b>Maori</b>    
-        <input type="text" name="Maori" value="<?php echo $maori; ?>" />
+        <input type="text" name="maori" value="<?php echo $maori; ?>" />
         &nbsp;&nbsp; <span class="error"><?php echo $MaoriErr;?></span>
     </p>
     
@@ -174,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         <textarea type="text" name="definition" cols="60" rows="7"><?php echo $definition; ?></textarea>   
     </p>
     
-    <input type="submit" name="submit" value="Add Word" />
+    <input type="submit" name="submit" value="Edit Word" />
     
     
 
