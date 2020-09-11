@@ -118,7 +118,8 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 	topicID='$topicID',
 	level='$level',
 	photo='$photo',
-	Maori='$description'
+	maori='$maori'
+    definition='definition'
 	$changephoto
 	WHERE vocabID=$vocabID";
 	
@@ -168,11 +169,11 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 			if ($topic_rs['topicID']==$topicID) {
 				echo '<option value="'.$topic_rs['topicID'].'"
 				selected';
-				echo ">".$cat_rs['topicName']."</option>";
+				echo ">".$topic_rs['topicName']."</option>";
 			}
 			else {
             echo '<option value="'.$topic_rs['topicID'].'"';
-            echo ">".$cat_rs['topicName']."<?option>";
+            echo ">".$topic_rs['topicName']."<?option>";
             }
         }    
         

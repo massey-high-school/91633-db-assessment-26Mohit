@@ -1,7 +1,7 @@
 <h3>Topics</h3>
 
     <form action="admin.php?page=addtopic" method="post">
-	    <input name="topicName" value=""/>
+	    <input name="topicName" value="" required/>
 		<input type="submit" value="Add Topic"/>
 	</form>	
 	
@@ -34,7 +34,7 @@
 			?>
 			
 		</select>
-		&nbsp; &nbsp; Change to... <input name="newtopic" value=""/>
+		&nbsp; &nbsp; Change to... <input name="newtopic" required value=""/>
 		<input type="submit" value="Update Topic"/>
 		
     </form>
@@ -44,7 +44,7 @@
 	<form action="admin.php?page=deletetopic" method="post">
 	<select name="deltopic">
 		
-		    <option value="">
+		    <option value="" disabled>
 			    Choose...
 			</option>	
 		
