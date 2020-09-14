@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     // sanitise all variables
     $word = test_input(mysqli_real_escape_string($dbconnect,$_POST["word"]));
     $level = test_input($_POST["level"]);
-    $topicID = preg_replace('/[^0-9.]-/','',$_POST['topicID']);
+    $topicID = preg_replace('/[^0-9.]/','',$_POST['topicID']);
     $maori = test_input(mysqli_real_escape_string($dbconnect,$_POST["maori"]));
     $definition = test_input(mysqli_real_escape_string($dbconnect,$_POST["definition"]));
     
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 	level='$level',
 	photo='$photo',
 	maori='$maori'
-    definition='definition'
+    definition='$definition'
 	$changephoto
 	WHERE vocabID=$vocabID";
 	
@@ -162,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
         <?php
             
         $topic_sql="SELECT * FROM `DB_topic`";
-        $topic_query=mysqli_query($dbconnect, $topic_sql);
+        $topic_query=mysqli_query($dbconnect,$topic_sql);
             
         do {
 			
@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
 			}
 			else {
             echo '<option value="'.$topic_rs['topicID'].'"';
-            echo ">".$topic_rs['topicName']."<?option>";
+            echo ">".$topic_rs['topicName']."</option>";
             }
         }    
         
@@ -214,3 +214,8 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     
 
 </form>
+
+
+
+
+
