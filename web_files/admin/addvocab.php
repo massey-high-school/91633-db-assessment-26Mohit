@@ -46,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     }
     
     //Check Image...
-    if ($_FILES['fileToUpload']['word']!="") {
+    if ($_FILES['fileToUpload']['name']!="") {
         
     // Shifts images from temporary directory to target directory
         
     // use unique-id so each upload file is unique    
-    $target_file = uniqid()."_". basename($_FILES["fileToUpload"]['word']);
+    $target_file = uniqid()."_". basename($_FILES["fileToUpload"]['name']);
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     
     // Allow .jpg, .png or gif only
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     header('Location: admin.php?page=addvocab_success');
             
     // put entry into database
-    if ($_FILES['fileToUpload']['word']!="")
+    if ($_FILES['fileToUpload']['name']!="")
         
         $addvocab_sql="INSERT INTO `DB_vocab` (word, topicID, level, photo, maori, definition) VALUES (
         '$word',
@@ -157,13 +157,13 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
     </p>
 
     <p>
-        <b>Photo</b>    
+        <b>Photo</b>
         <input type="file" name="fileToUpload" id="fileToUpload" value=""/>&nbsp;&nbsp; <span class="error"><?php echo $PhotoErr;?></span>    
     </p>
 
     <p>
         <b>Maori</b>    
-        <input type="text" name="Maori" value="<?php echo $maori; ?>" />
+        <input type="text" name="maori" value="<?php echo $maori; ?>" />
         &nbsp;&nbsp; <span class="error"><?php echo $MaoriErr;?></span>
     </p>
     

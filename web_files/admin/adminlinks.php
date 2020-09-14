@@ -10,7 +10,7 @@
 	<form action="admin.php?page=edittopic" method="post">
 	    <select name="oldtopic">
 		
-		    <option value="">
+		    <option value="" disabled>
 			    Choose...
 			</option>	
 		
