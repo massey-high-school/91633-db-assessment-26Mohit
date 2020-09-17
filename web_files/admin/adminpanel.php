@@ -2,4 +2,5 @@
 
 <?php
     include("adminlinks.php");
+    include("search.php");
 ?>	
