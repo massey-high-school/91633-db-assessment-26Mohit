@@ -28,5 +28,6 @@
     
 					
 		<a class="nav" href="admin/admin.php">Admin</a>
+
 		
 	</div>	<!-- end navigation -->
