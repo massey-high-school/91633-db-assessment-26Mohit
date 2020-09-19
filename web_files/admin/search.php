@@ -1,8 +1,3 @@
-<div class="header">
-    <form  method="post">
-	    <input name="DB_vocab" value="" required/>
-		<input type="submit" placeholder="Search"/>
-		
 <?php
 
 	// find the words from the database
@@ -12,5 +7,3 @@
 
 
 ?>
-	</form>	
-</div>
