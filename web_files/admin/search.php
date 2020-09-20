@@ -2,6 +2,7 @@
 
 $output = '';
 if(isset($_POST['DB_vocab'])) {
+	header('Location:index.php');
     $DB_vocab = $_POST['DB_vocab'];
     $DB_vocab = preg_replace('/[^a-zA-Z0-9]/', '',  $DB_vocab);
 	

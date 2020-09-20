@@ -25,7 +25,12 @@
 
         ?>
     
-    
+    <a class="navigation" href="index.php?page=search"> 
+	<form action="index.php?page=search" method="post">
+	    <input name="DB_vocab" value="" required/>
+		<input type="submit" value="Search"/>
+	</form>	
+</a>
 					
 		<a class="nav" href="admin/admin.php">Admin</a>
 
