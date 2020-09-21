@@ -26,16 +26,19 @@
         ?>
     
 					
-		<a class="nav" href="admin/admin.php">Admin</a>                  
-    
-         <a class="nav" >     
-            <form action="index.php?page=search" method="post">
+		<a class="nav" href="admin/admin.php">Admin</a>                 
+           
+   <div class="navigation" >     
+            <form action="index.php?page=search" method="post" text-align="right">
 	        <input name="DB_vocab" value="" required/>
 		    <input type="submit" value="Search"/>
 	       </form>
 	       
-           </a>    
-   
-
+           </div>    
+ 
 		
 	</div>	<!-- end navigation -->
+
+
+
+    
