@@ -15,7 +15,7 @@
        
    <?php do {?>
        <tr class="results">
-           <td class="results"><a href="../index.php?page=vocab&vocabID=<?php echo $stock_rs['vocabID']; ?>"><?php echo $vocab_rs['word']; ?></a></td>
+           <td class="results"><a href="../index.php?page=vocab&vocabID=<?php echo $vocab_rs['vocabID']; ?>"><?php echo $vocab_rs['word']; ?></a></td>
            <td class="results"><b>L <?php echo $vocab_rs['level']; ?></b></td>
            <td class="results"><a href="admin.php?page=editvocab&vocabID=<?php echo $vocab_rs['vocabID']; ?>">Edit</a></td>
            <td class="results"><a href="admin.php?page=deleteword_confirm&vocabID=<?php echo $vocab_rs['vocabID']; ?>">Delete</a></td>
