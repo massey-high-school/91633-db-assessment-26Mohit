@@ -1,7 +1,11 @@
 body {
 	font-family: Tahoma;
 	color: #000000;
-	background-image: url("paper.gif"); /*light blue */
+    background-color: skyblue;
+	background-image: url("12_rafter_design.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
 
 span.error {
@@ -10,13 +14,13 @@ span.error {
 
 div.content {
 	margin: auto;
-	width: 800px;
+	width: 1000px;
 	}
 
 div.heading{
 	color: #ffffff;
 	text-align: center;
-	background-image: bear.jpg; /* dark blue */
+	background-color: ; /* dark blue */
 	padding: 10px;
 	}
 	
@@ -60,6 +64,8 @@ div.navigation
 
 div.nav2
 {
+overflow: auto;
+ text-align: right;
  position: absolute;
  right: 200px;
  top: 120px;
