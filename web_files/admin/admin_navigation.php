@@ -30,10 +30,11 @@
 		<a class="nav" href="admin.php">Admin</a>
             
 
-	       <form action="../index.php?page=search" method="post">
+	       <div class="nav2"> 
+		   <form action="../index.php?page=search" method="post">
 	        <input name="DB_vocab" value="" required/>
 		    <input type="submit" value="Search"/>
 	       </form>	
-
+           </div>
 		
 	</div>	<!-- end navigation -->

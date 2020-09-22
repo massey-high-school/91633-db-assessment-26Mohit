@@ -1,7 +1,7 @@
 body {
 	font-family: Tahoma;
 	color: #000000;
-	background-color: #9DB3C8; /*light blue */
+	background-image: url("paper.gif"); /*light blue */
 }
 
 span.error {
@@ -16,7 +16,7 @@ div.content {
 div.heading{
 	color: #ffffff;
 	text-align: center;
-	background-image: #ff0000; /* dark blue */
+	background-image: bear.jpg; /* dark blue */
 	padding: 10px;
 	}
 	
@@ -59,9 +59,10 @@ div.navigation
 }
 
 div.nav2
-{text-align: right;
+{
  position: absolute;
- right: 0px;
+ right: 200px;
+ top: 120px;
 }
 
 
