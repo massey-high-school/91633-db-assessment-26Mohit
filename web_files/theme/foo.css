@@ -1,11 +1,8 @@
 body {
 	font-family: Tahoma;
 	color: #000000;
-    background-color: black;
-	background-image: red; 
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-color: rgb(245,245,220);
+
 }
 
 span.error {
@@ -18,9 +15,11 @@ div.content {
 	}
 
 div.heading{
-	color: #ffffff;
-	text-align: center;
-	background-color: ; /* dark blue */
+	color: #f5f5dc;
+	text-align: center; 
+    background-image: url(../images/12_rafter_design.png);
+    background-repeat: repeat-x;
+    height: 90px;
 	padding: 10px;
 	}
 	
@@ -51,6 +50,7 @@ img.header
 	margin: auto;
 	text-align: center;
 
+
 }
 
 div.navigation
@@ -64,11 +64,12 @@ div.navigation
 
 div.nav2
 {
-overflow: auto;
+ overflow: auto;
+ margin: auto;
  text-align: right;
  position: absolute;
  right: 200px;
- top: 120px;
+ top: 125px;
 }
 
 
@@ -86,7 +87,7 @@ h1 {
 
 h1.white
 {
-	color: #ffffff;
+	color: #f5f5dc;
 }
 
 
